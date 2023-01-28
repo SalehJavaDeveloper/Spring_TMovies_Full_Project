@@ -1,0 +1,400 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="manifest" href="/manifest.json">
+   
+    <link rel="icon" th:href="@{/image/icon/tmovie.67797e94.ico}">
+    <title>TMovies</title>
+    <link rel="stylesheet" th:href="@{/css/banner.css}"/>
+    <link rel="stylesheet" th:href= "@{/css/button.css}" />
+    <link rel="stylesheet" th:href="@{/css/bx.css}" />
+    <link rel="stylesheet" th:href="@{/css/elements.css}" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/hero-slide.css}" />
+    <link rel="stylesheet" th:href="@{/css/input.css}" />
+    <link rel="stylesheet" th:href="@{/css/modal.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-card.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-grid.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-list.css}" />
+    <link rel="stylesheet" th:href="@{/css/page-header.css}" />
+    <link rel="stylesheet" th:href="@{/css/Swipper.css}" />
+    <link rel="stylesheet" th:href="@{/css/headertag.css}">
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
+    <link
+            href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+    <!-- <link rel="stylesheet" href="swiper-bundle.min.css"> -->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="progress">
+        <div class="progress-bar" id="scroll-bar"></div>
+        </div>
+       
+        <div class="header" id="header" onscroll="myFuction()" th:each = "details: ${maindetaildata}">
+            <div class="header__wrap container">
+                <div class="logo">
+                    <img th:src="@{${details.TMoviesLogo}}" alt="">
+                    <a href="/" th:text="${details.TMoviesWord}"></a>
+                </div>
+                <ul class="header__nav">
+                    <li class="active">
+                        <a th:href="@{/sort/pagable}">Home</a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{/movies}">Movies</a>
+                    </li>
+                    <li class="">
+                        <a th:href="@{/tvSeries}">TV Series</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hero-slide">
+            <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+                modules="[object Object]" style="cursor: grab;">
+                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                    <div class="swiper-slide swiper-slide-active" th:each = "homeheaderdata1: ${headerhomedata1}">
+                        <div class="hero-slide__item active"
+                             th:style="'background-image:url(' + ${headerhomedata1.TMoviesHeaderImage} + ');'">
+                            <div class="hero-slide__item__content container">
+                                <div class="hero-slide__item__content__info">
+                                    <h2 class="title top-down delay-2" th:text="${headerhomedata1.TMoviesMovieName}"></h2>
+                                    <div class="overview top-down delay-4"  th:text="${headerhomedata1.TMoviesMovieAbout}"></div>
+                                    <div class="btns">
+                                        <a  th:href="@{/tmovies/Movies/{id}(id = ${headerhomedata1.id})}"><button class="btn undefined top-down delay-6">Watch now</button></a>
+                                        <button class="main-button1 btn btn-outline undefined top-down delay-6">
+                                            Watch trailer</button>
+                                    </div>
+                                </div>
+                                <div class="hero-slide__item__content__poster top-down delay-8">
+                                    <img th:src="@{${headerhomedata1.TMoviesMainFrontImage}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-next" th:each = "homeheaderdata2: ${headerhomedata2}">
+                        <div class="hero-slide__item "
+                             th:style="'background-image:url(' + ${headerhomedata2.TMoviesHeaderImage} + ');'">
+                            <div class="hero-slide__item__content container">
+                                <div class="hero-slide__item__content__info">
+                                    <h2 class="title top-down delay-2" th:text="${headerhomedata2.TMoviesMovieName}"></h2>
+                                    <div class="overview top-down delay-4" th:text="${headerhomedata2.TMoviesMovieAbout}"></div>
+                                    <div class="btns">
+                                        <a  th:href="@{/tmovies/Movies/{id}(id = ${headerhomedata2.id})}"><button class="btn undefined top-down delay-6">Watch now</button></a>
+                                        <button class="main-button2 btn btn-outline undefined top-down delay-6">Watch trailer</button>
+                                    </div>
+                                </div>
+                                <div class="hero-slide__item__content__poster top-down delay-8">
+                                    <img th:src="@{${headerhomedata2.TMoviesMainFrontImage}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide swiper-slide-next" th:each = "homeheaderdata3: ${headerhomedata3}">
+                        <div class="hero-slide__item "
+                             th:style="'background-image:url(' + ${headerhomedata3.TMoviesHeaderImage} + ');'">
+                            <div class="hero-slide__item__content container">
+                                <div class="hero-slide__item__content__info">
+                                    <h2 class="title top-down delay-2" th:text="${headerhomedata3.TMoviesMovieName}"></h2>
+                                    <div class="overview top-down delay-4" th:text="${headerhomedata3.TMoviesMovieAbout}"></div>
+                                    <div class="btns">
+                                        <a  th:href="@{/tmovies/Movies/{id}(id = ${headerhomedata3.id})}"><button class="btn undefined top-down delay-6">Watch now</button></a>
+                                        <button class="main-button3 btn btn-outline undefined top-down delay-6">Watch trailer</button>
+                                    </div>
+                                </div>
+                                <div class="hero-slide__item__content__poster top-down delay-8">
+                                    <img th:src="@{${headerhomedata3.TMoviesMainFrontImage}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal_760161" class="modal1" >
+                <div class="modal__content1">
+                    <iframe width="100%" height="500px" title="trailer"  id="mainvideo1"
+                            th:src="${headerhomedata1.TMoviesTrailerVideo2}"></iframe>
+                    <div class="modal__content__close1">
+                        <button id="stop-button1" style="background-color: #EEEDE9;"><i class="bx bx-x"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="modal_985939" class="modal2">
+                <div class="modal__content2">
+                    <iframe width="100%" height="500px" title="trailer" id="mainvideo2"
+                            th:src="${headerhomedata2.TMoviesTrailerVideo1}"></iframe>
+                        <div class="modal__content__close2">
+                            <button id="stop-button2" style="background-color: #EEEDE9;"><i class="bx bx-x"></i></button>
+                        </div>
+                </div>
+            </div>
+            <div id="modal_642885" class="modal3">
+                <div class="modal__content3">
+                    <iframe width="100%" height="500px" title="trailer" id="mainvideo3"
+                            th:src="${headerhomedata3.TMoviesTrailerVideo1}">
+                    </iframe>
+                    <div class="modal__content__close3">
+                        <button id="stop-button3" style="background-color: #EEEDE9;"><i class="bx bx-x"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <iframe th:src="@{/infoMovies/1}" frameborder="0" width="100%" height="100%" style="margin-top: 5px;"></iframe>
+        <div class="container">
+            <div class="section mb-3" style="margin-top: 20px;margin-bottom: -11rem">
+                <div class="section__header mb-2">
+                    <h2>Trending Movies</h2>
+                    <a href="/movie">
+                        <button class="btn btn-outline small">View more</button>
+                    </a>
+                </div>
+                <div class="movie-list">
+                    <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+                        style="cursor: grab;">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+<!--                            <div class="swiper-slide-active" style="margin-right: 10px !important;" th:each = "pagableData1: ${pagabledata1}">-->
+<!--                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData1.id})}">-->
+<!--                                    <div class="movie-card"-->
+<!--                                         th:style="'background-image:url(' + ${pagableData1.TMoviesMainFrontImage} + ');'">-->
+<!--                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>-->
+<!--                                    <h3 th:text="${pagableData1.TMoviesMovieName}"></h3>-->
+<!--                                    -->
+<!--                                </a>-->
+<!--                            </div>-->
+                            <div class="swiper-slide swiper-slide-active" style="margin-right: 10px;" th:each = "pagableData3: ${pagabledata3}">
+                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData3.id})}">
+                                    <div class="movie-card"
+                                         th:style="'background-image:url(' + ${pagableData3.TMoviesMainFrontImage} + ');'">
+                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>
+                                    <h3 th:text="${pagableData3.TMoviesMovieName}"></h3>
+                                </a>
+                            </div>
+                            </div>
+                    </div>
+                   </div>
+            </div>
+            <div class="section mb-3" style="margin-bottom: -11rem">
+                <div class="section__header mb-2">
+                    <h2>Top Rated Movies</h2><a href="/movie"><button class="btn btn-outline small">View
+                            more</button></a>
+                </div>
+                <div class="movie-list">
+                    <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+                        style="cursor: grab;">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            <div class="swiper-slide swiper-slide-active" style="margin-right: 10px;" th:each = "pagableData2: ${pagabledata2}">
+                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData2.id})}">
+                                    <div class="movie-card"
+                                         th:style="'background-image:url(' + ${pagableData2.TMoviesMainFrontImage} + ');'">
+                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>
+                                    <h3 th:text="${pagableData2.TMoviesMovieName}"></h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section mb-3" style="margin-bottom: -11rem">
+                <div class="section__header mb-2">
+                    <h2>Trending TV</h2><a href="/tv"><button class="btn btn-outline small">View more</button></a>
+                </div>
+                <div class="movie-list">
+                    <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+                        style="cursor: grab;">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            <div class="swiper-slide swiper-slide-active" style="margin-right: 10px;" th:each = "pagableData3: ${pagabledata3}">
+                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData3.id})}">
+                                    <div class="movie-card"
+                                         th:style="'background-image:url(' + ${pagableData3.TMoviesMainFrontImage} + ');'">
+                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>
+                                    <h3 th:text="${pagableData3.TMoviesMovieName}"></h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section mb-3" style="margin-bottom: -11rem;">
+                <div class="section__header mb-2">
+                    <h2>Top Rated TV</h2><a href="/tv"><button class="btn btn-outline small">View more</button></a>
+                </div>
+                <div class="movie-list">
+                    <div class="swiper"
+                        style="cursor: grab;">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            <div class="swiper-slide swiper-slide-active" style="margin-right: 10px;" th:each = "pagableData4: ${pagabledata4}">
+                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData4.id})}">
+                                    <div class="movie-card"
+                                         th:style="'background-image:url(' + ${pagableData4.TMoviesMainFrontImage} + ');'">
+                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>
+                                    <h3 th:text="${pagableData4.TMoviesMovieName}"></h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div
+            class="footer"
+            th:each = "details: ${maindetaildata}"
+            th:style="'background-image:url(' + ${details.TMoviesFooterBackground} + ');'"
+    >
+        <div class="footer__content container">
+            <div class="footer__content__logo">
+                <div class="logo">
+                    <img th:src="@{${details.TMoviesLogo}}" alt="" /><a href="/"
+                >tMovies</a
+                >
+                </div>
+            </div>
+            <div class="footer__content__menus">
+                <div class="footer__content__menu">
+                    <a href="/" th:text="${details.TMoviesFooterHome}" th:href="@{/sort/pagable}"></a><a href="/" th:text="${details.TMoviesFooterContact}"></a
+                ><a href="/" th:text="${details.TMoviesFooterService}"></a><a href="/" th:text="${details.TMoviesFooterAbout}"></a>
+                </div>
+                <div class="footer__content__menu">
+                    <a href="/" th:text="${details.TMoviesFooterLive}"></a><a href="/" th:text="${details.TMoviesFooterFaq}"></a><a href="/" th:text="${details.TMoviesFooterPremium}"></a
+                ><a href="/">Pravacy policy</a>
+                </div>
+                <div class="footer__content__menu">
+                    <a href="/" th:text="${details.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 9)}"></a><a href="/" th:text="${details.TMoviesFooterRelease}"></a
+                ><a href="/" th:text="${details.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 8)}"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="../static/js/main.js"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+  <script>
+ var swiper = new Swiper(".swiper-container", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+           var swiper = new Swiper(".swiper", {});
+
+    let mainButton1 = document.querySelector(".main-button1");
+    let modal1 = document.querySelector(".modal1");
+    let mainButton2 = document.querySelector(".main-button2");
+    let modal2 = document.querySelector(".modal2");
+    let mainButton3 = document.querySelector(".main-button3");
+    let modal3 = document.querySelector(".modal3");
+    let bx1 = document.querySelector(".modal__content__close1");
+    let bx2 = document.querySelector(".modal__content__close2");
+    let bx3 = document.querySelector(".modal__content__close3");
+
+    mainButton1.onclick = () => {
+        modal1.classList.toggle("active");
+    };
+    mainButton2.onclick = () => {
+        modal2.classList.toggle("active");
+    };
+    mainButton3.onclick = () => {
+        modal3.classList.toggle("active");
+    };
+    bx1.onclick = () => {
+        modal1.classList.remove("active");
+    };
+    bx2.onclick = () => {
+        modal2.classList.remove("active");
+    };
+    bx3.onclick = () => {
+        modal3.classList.remove("active");
+    };
+
+    const header = document.querySelector('.header');
+    window.onscroll = function () {
+        let top = window.scrollY;
+        console.log(top);
+        if (top >= 100) {
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+    };
+    let player1;
+    let player2;
+    let player3;
+
+    // this function gets called when API is ready to use
+    function onYouTubePlayerAPIReady() {
+        // create the global player from the specific iframe (#video)
+        player1 = new YT.Player("mainvideo1", {
+            events: {
+                // call this function when player is ready to use
+                onReady: onPlayerReady1,
+            }}),
+            player2 = new YT.Player("mainvideo2", {
+                events: {
+                    // call this function when player is ready to use
+                    onReady: onPlayerReady2,
+                }}),
+            player3 = new YT.Player("mainvideo3", {
+                events: {
+                    // call this function when player is ready to use
+                    onReady: onPlayerReady3,
+                },
+            })
+    }
+    function onPlayerReady1(event) {
+        // bind events
+
+        let stopButton = document.getElementById("stop-button1");
+        stopButton.addEventListener("click", function () {
+            player1.stopVideo();
+        });
+    }
+    function onPlayerReady2(event) {
+        // bind events
+
+        let stopButton = document.getElementById("stop-button2");
+        stopButton.addEventListener("click", function () {
+            player2.stopVideo();
+        });
+    }
+    function onPlayerReady3(event) {
+        // bind events
+
+        let stopButton = document.getElementById("stop-button3");
+        stopButton.addEventListener("click", function () {
+            player3.stopVideo();
+        });
+    }
+
+    // Inject YouTube API script
+    let tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/player_api";
+    let firstScriptTag = document.getElementsByTagName("script")[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  </script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TMovies: Admin Panel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <style>
+        label{
+            color: white;
+        }
+        .text-center{
+            color:white;
+        }
+    </style>
+</head>
+<body style="background-color: #171622">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">TMovies Managment System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/admin/table/bootstrap}">TMovies:Admin Panel</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-Lg-6 col-md-6 col-sm-6 container justify-content-center card" style="background-color: #212130">
+     <h1 class="text-center">Create New Movies Data</h1>
+      <div class="card-body">
+        <form  th:action="@{/save/new-tmovies-data}" th:object="${newDataMovies}" method="get">
+           <div class="form-group">
+               <label>Unique Id</label>
+                <input
+                        type="text"
+                        name="firstname"
+                        class="form-control"
+                        th:field="*{uniqeId}"
+                        placeholder="Enter the Id"
+                >
+           </div>
+            <div class="form-group">
+                <label>TMovies Logo</label>
+                <input
+                        type="text"
+                        name="lastname"
+                        class="form-control"
+                        th:field="*{TMoviesLogo}"
+                        placeholder="Enter the Logo"
+                >
+            </div>
+            <div class="form-group">
+                <label>TMovies Word</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesWord}"
+                        placeholder="Enter the TMovies Word"
+                >
+            </div>
+            <div class="form-group">
+                <label>TMovies Header Image</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesHeaderImage}"
+                        placeholder="Enter the Header Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>TMovies Main Front Image</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMainFrontImage}"
+                        placeholder="Enter the Main Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Name</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieName}"
+                        placeholder="Enter the Movie Name"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Type1</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieType1}"
+                        placeholder="Enter Movie Type1"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Type2</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieType2}"
+                        placeholder="Enter Movie Type2"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie About</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieAbout}"
+                        placeholder="Enter the Movie About"
+                >
+            </div>
+            <div class="form-group">
+                <label>Casts</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieCasts}"
+                        placeholder="Enter the Casts"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Image1</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieImage1}"
+                        placeholder="Enter the Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Image2</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieImage2}"
+                        placeholder="Enter the Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Image3</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieImage3}"
+                        placeholder="Enter the Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Image4</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieImage4}"
+                        placeholder="Enter the Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>Movie Image5</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieImage5}"
+                        placeholder="Enter the Image"
+                >
+            </div>
+            <div class="form-group">
+                <label>Actorname1</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieActorName1}"
+                        placeholder="Enter the Actor Name"
+                >
+            </div>
+            <div class="form-group">
+                <label>Actorname2</label>
+                    <input
+                            type="text"
+                            name="email"
+                            class="form-control"
+                            th:field="*{TMoviesMovieActorName2}"
+                            placeholder="Enter the Actor Name"
+                    >
+            </div>
+            <div class="form-group">
+                <label>Actorname3</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieActorName3}"
+                        placeholder="Enter the Actor Name"
+                >
+            </div>
+            <div class="form-group">
+                <label>Actorname4</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieActorName4}"
+                        placeholder="Enter the Actor Name"
+                >
+            </div>
+            <div class="form-group">
+                <label>Actorname5</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesMovieActorName5}"
+                        placeholder="Enter the Actor Name"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Description1</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerDescription1}"
+                        placeholder="Enter the Description"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Video1</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerVideo1}"
+                        placeholder="Enter the Video"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Description2</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerDescription2}"
+                        placeholder="Enter the Description"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Video2</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerVideo2}"
+                        placeholder="Enter the Video"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Description3</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerDescription3}"
+                        placeholder="Enter the Description"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Video3</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerVideo3}"
+                        placeholder="Enter the Video"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Description4</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerDescription4}"
+                        placeholder="Enter the Description"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Video4</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerVideo4}"
+                        placeholder="Enter the Video"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Description5</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerDescription5}"
+                        placeholder="Enter the Description"
+                >
+            </div>
+            <div class="form-group">
+                <label>Trailer Video5</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesTrailerVideo5}"
+                        placeholder="Enter the Video"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Background</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterBackground}"
+                        placeholder="Enter the Background"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Home</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterHome}"
+                        placeholder="Enter the Home"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Contact</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterContact}"
+                        placeholder="Enter the Contact"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Service</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterService}"
+                        placeholder="Enter the Service"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer About</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterAbout}"
+                        placeholder="Enter the About"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Live</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterLive}"
+                        placeholder="Enter the Live"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Faq</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterFaq}"
+                        placeholder="Enter the Faq"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Premium</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterPremium}"
+                        placeholder="Enter the Premium"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Must Watch</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterMustWatch}"
+                        placeholder="Enter the Must Watch"
+                >
+            </div>
+            <div class="form-group">
+                <label>Footer Release</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterRelease}"
+                        placeholder="Enter the Release"
+                >
+            </div>
+            <div class="form-group">
+                <label>TMovies Top IMDB</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesFooterTopImdb}"
+                        placeholder="Enter the Top IMDB"
+                >
+            </div>
+            <div class="form-group">
+                <label>TMovies IMDB</label>
+                <input
+                        type="text"
+                        name="email"
+                        class="form-control"
+                        th:field="*{TMoviesImdb}"
+                        placeholder="Enter the IMDB"
+                >
+            </div>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">
+                  Submit
+                </button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

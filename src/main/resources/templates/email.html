@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/emailstyle.css}"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+      <div class="d-lg-flex half">
+        <div
+          class="bg order-1 order-md-2"
+          style="background-image: url(/image/img/email.png)"
+        ></div>
+        <div class="contents order-2 order-md-1">
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-7">
+                <h3>Login to <strong>Colorlib</strong></h3>
+                <p class="mb-4">
+                  Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
+                  consectetur adipisicing.
+                </p>
+                <form action="#" th:action="@{/take/email}" th:object="${emailTo}"  th:method="get">
+                  <div class="form-group first">
+                    <label for="username">Username</label>
+                    <input
+                      type="email"
+                      th:field="*{to}"
+                      class="form-control"
+                      placeholder="your-email@gmail.com"
+                      id="username"
+                    />
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"
+                      ><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <input
+                    type="submit"
+                    value="Log In"
+                    class="btn btn-block btn-primary"
+                  />
+                </form>
+                <a class="small text-muted" style="margin-left: 90px" href="#!" th:href="@{/verifection/number}">Do you want to login with Otp?<span style="color: red"> OTP</span></a>
+                <p class="mb-5 pb-lg-2" style="color: #393f81">
+                  <a href="#!" style="color: #393f81"></a>
+                </p>
+                <a href="#!" class="small text-muted" style="margin-left: 115px">Terms of use.</a>
+                <a href="#!" class="small text-muted">Privacy policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script
+        defer=""
+        src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993"
+        integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA=="
+        data-cf-beacon='{"rayId":"78bcc2434ebe9dd4","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2022.11.3","si":100}'
+        crossorigin="anonymous"
+      ></script>
+    </body>
+</html>

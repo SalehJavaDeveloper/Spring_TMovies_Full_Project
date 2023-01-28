@@ -1,0 +1,206 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" th:href="@{/image/icon/tmovie.67797e94.ico}">
+    <title>TMovies</title>
+    <link rel="stylesheet" th:href="@{/css/banner.css}" />
+    <link rel="stylesheet" th:href= "@{/css/button.css}" />
+    <link rel="stylesheet" th:href="@{/css/bx.css}" />
+    <link rel="stylesheet" th:href="@{/css/elements.css}" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/hero-slide.css}" />
+    <link rel="stylesheet" th:href="@{/css/input.css}" />
+    <link rel="stylesheet" th:href="@{/css/modal.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-card.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-grid.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-list.css}" />
+    <link rel="stylesheet" th:href="@{/css/page-header.css}" />
+    <link rel="stylesheet" th:href="@{/css/Swipper.css}" />
+    <link rel="stylesheet" th:href="@{/css/headertag.css}">
+    <link
+            href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+            rel="stylesheet"
+    />
+    <script th:src="@{/js/main.js}"></script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" th:action="@{/tmovies/Movies/{id}(id = ${mainPageData.id})}" th:object="${mainPageData}" method="get">
+        <div class="header" id="header">
+            <div class="header__wrap container">
+                <div class="logo"><img th:src="@{${mainPageData.TMoviesLogo}}"  alt=""><a href="/" th:text="${mainPageData.TMoviesWord}"></a></div>
+                <ul class="header__nav">
+                    <li class=""><a th:href="@{/sort/pagable}">Home</a></li>
+                    <li class=""><a th:href="@{/movies}" >Movies</a></li>
+                    <li class=""><a th:href="@{/tvSeries}">TV Series</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="banner"
+             th:style="'background-image:url(' + ${mainPageData.TMoviesHeaderImage} + ');'">
+        </div>
+        <div class="mb-3 movie-content container">
+            <div class="movie-content__poster">
+                <div class="movie-content__poster__img"
+                     th:style="'background-image:url(' + ${mainPageData.TMoviesMainFrontImage} + ');'">
+                </div>
+            </div>
+            <div class="movie-content__info">
+                <h1 class="title" th:text="${mainPageData.TMoviesMovieName}"></h1>
+                <div class="genres"><span class="genres__item" th:text="${mainPageData.TMoviesMovieType1}"></span><span class="genres__item" th:text="${mainPageData.TMoviesMovieType2}"></span></div>
+                <p class="overview" th:text="${mainPageData.TMoviesMovieAbout}"></p>
+                <div class="cast">
+                    <div class="section__header">
+                        <h2 th:text="${mainPageData.TMoviesMovieCasts}"></h2>
+                    </div>
+                    <div class="casts">
+                        <div class="casts__item">
+                            <div class="casts__item__img"
+                                 th:style="'background-image:url(' + ${mainPageData.TMoviesMovieImage1} + ');'">
+                            </div>
+                            <p class="casts__item__name" th:text="${mainPageData.TMoviesMovieActorName1}"></p>
+                        </div>
+                        <div class="casts__item">
+                            <div class="casts__item__img"
+                                 th:style="'background-image:url(' + ${mainPageData.TMoviesMovieImage2} + ');'">
+                            </div>
+                            <p class="casts__item__name" th:text="${mainPageData.TMoviesMovieActorName2}"></p>
+                        </div>
+                        <div class="casts__item">
+                            <div class="casts__item__img"
+                                 th:style="'background-image:url(' + ${mainPageData.TMoviesMovieImage3} + ');'">
+                            </div>
+                            <p class="casts__item__name" th:text="${mainPageData.TMoviesMovieActorName3}"></p>
+                        </div>
+                        <div class="casts__item">
+                            <div class="casts__item__img"
+                                 th:style="'background-image:url(' + ${mainPageData.TMoviesMovieImage4} + ');'">
+                            </div>
+                            <p class="casts__item__name" th:text="${mainPageData.TMoviesMovieActorName4}"></p>
+                        </div>
+                        <div class="casts__item">
+                            <div class="casts__item__img"
+                                 th:style="'background-image:url(' + ${mainPageData.TMoviesMovieImage5} + ');'">
+                            </div>
+                            <p class="casts__item__name" th:text="${mainPageData.TMoviesMovieActorName5}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section mb-3">
+                <div class="video">
+                    <div class="video__title">
+                        <h2 th:text="${mainPageData.TMoviesTrailerDescription1}"></h2>
+                    </div><iframe th:src="${mainPageData.TMoviesTrailerVideo1}"  width="100%" title="video"
+                        height="695.8125px"></iframe>
+                </div>
+                <div class="video">
+                    <div class="video__title">
+                        <h2 th:text="${mainPageData.TMoviesTrailerDescription2}"></h2>
+                    </div><iframe th:src="${mainPageData.TMoviesTrailerVideo2}"  width="100%" title="video"
+                        height="695.8125px"></iframe>
+                </div>
+                <div class="video">
+                    <div class="video__title">
+                        <h2 th:text="${mainPageData.TMoviesTrailerDescription3}"></h2>
+                    </div><iframe th:src="${mainPageData.TMoviesTrailerVideo3}"  width="100%" title="video"
+                        height="695.8125px"></iframe>
+                </div>
+                <div class="video">
+                    <div class="video__title">
+                        <h2 th:text="${mainPageData.TMoviesTrailerDescription4}"></h2>
+                    </div><iframe th:src="${mainPageData.TMoviesTrailerVideo4}"  width="100%" title="video"
+                        height="695.8125px"></iframe>
+                </div>
+                <div class="video">
+                    <div class="video__title">
+                        <h2 th:text="${mainPageData.TMoviesTrailerDescription5}"></h2>
+                    </div><iframe th:src="${mainPageData.TMoviesTrailerVideo5}"  width="100%" title="video"
+                        height="695.8125px"></iframe>
+                </div>
+            </div>
+            <div class="section mb-3" style="margin-bottom: -11rem;">
+                <div class="section__header mb-2">
+                    <h2>Similar</h2>
+                </div>
+                <div class="movie-list">
+                    <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
+                        style="cursor: grab;">
+                        <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            <div class="swiper-slide" style="margin-right: 10px !important;"  th:each = "getAllMovies: ${getAllMovies}">
+                                <a th:href="@{/tmovies/Movies/{id}(id = ${getAllMovies.id})}">
+                                    <div class="movie-card"
+                                         th:style="'background-image:url(' + ${getAllMovies.TMoviesMainFrontImage} + ');'">
+                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>
+                                    <h3 th:text="${getAllMovies.TMoviesMovieName}"></h3>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer"  th:style="'background-image:url(' + ${mainPageData.TMoviesFooterBackground} + ');'">
+            <div class="footer__content container">
+                <div class="footer__content__logo">
+                    <div class="logo"><img th:src="@{${mainPageData.TMoviesLogo}}" alt=""><a href="/" th:text="${mainPageData.TMoviesWord}"></a></div>
+                </div>
+                <div class="footer__content__menus">
+                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterHome}" th:href="@{/sort/pagable}"></a><a href="/" th:text="${mainPageData.TMoviesFooterContact}"></a><a href="/" th:text="${mainPageData.TMoviesFooterService}">
+                            </a><a href="/" th:text="${mainPageData.TMoviesFooterAbout}"></a></div>
+                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterLive}"></a><a href="/" th:text="${mainPageData.TMoviesFooterFaq}"></a><a href="/" th:text="${mainPageData.TMoviesFooterPremium}"></a><a
+                            href="/">Pravacy policy</a></div>
+                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 9)}"></a><a href="/" th:text="${mainPageData.TMoviesFooterRelease}"></a><a
+                            href="/" th:text="${mainPageData.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 8)}"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/main.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+    // var swiper = new Swiper(".swiper-container", {
+    //     effect: "coverflow",
+    //     grabCursor: true,
+    //     centeredSlides: true,
+    //     slidesPerView: "auto",
+    //     coverflowEffect: {
+    //         rotate: 50,
+    //         stretch: 0,
+    //         depth: 100,
+    //         modifier: 1,
+    //         slideShadows: true,
+    //     },
+    //     pagination: {
+    //         el: ".swiper-pagination",
+    //     },
+    // });
+    var swiper = new Swiper(".swiper", {});
+
+    const header = document.querySelector('.header');
+    window.onscroll = function () {
+        let top = window.scrollY;
+        console.log(top);
+        if (top >= 100) {
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+    };
+</script>
+</body>
+
+</html>

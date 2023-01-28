@@ -1,0 +1,30 @@
+.full-screen-main #media-viewer {
+    display: inline-block;
+    margin: 16px 158px 0 158px;
+    align-items: center;
+    justify-content: center;
+}
+.full-screen-main.zoomed {
+    width: 100%;
+    padding-right: 0;
+    overflow-x: scroll;
+}
+.full-screen-main {
+    background-color: #dfdfdf;
+}
+.full-screen-main.can-zoom img.zoomed {
+    max-width: none;
+}
+.full-screen-main img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.page-header{
+    background-color: #dfdfdf;
+}
+@media only screen and (min-width: 960px)
+    .full-screen-main {
+    padding: 20px 40px;
+}

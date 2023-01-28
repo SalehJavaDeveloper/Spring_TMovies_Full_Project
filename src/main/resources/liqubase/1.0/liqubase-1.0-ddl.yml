@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create TMovies Data Table
+      author: Saleh Allahverdiyev
+      Comment: Movies Created
+      changes:
+        - sqlFile:
+            path: liqubase/1.0/liqubase-1.0-ddl.sql

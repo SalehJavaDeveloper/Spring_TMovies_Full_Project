@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/odpstyle.css}" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    />
+  </head>
+  <body
+    style="
+      background-image: url(/image/img/WhatsApp-Image-2020-12-14-at-6.19.03-PM-1250x640.jpeg);
+    "
+  >
+    <div class="d-flex" style="margin-top: 60px;margin-left: 15px;">
+      <div class="card py-5 px-3">
+        <h5 class="m-0">Mobile phone verification</h5>
+        <span class="mobile-text"
+          >Enter the code we just send on your mobile phone
+          <b class="text-danger">+994773574917</b></span
+        >
+        <div class="d-flex flex-row mt-5">
+          <form  th:action="@{/verify/otp}" th:object="${getOTP}"  method="get">
+          <input type="text" class="form-control" th:field="*{otp}" autofocus=""  placeholder="otp"/>
+            <input type="submit" class="btn btn-dark btn-lg btn-block" /></form>
+        </div>
+        <div class="text-center mt-5">
+          <span class="d-block mobile-text">Don't receive the code?</span
+          ><a
+            class="font-weight-bold text-danger cursor"
+            style="text-decoration: none"
+            >Resend</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

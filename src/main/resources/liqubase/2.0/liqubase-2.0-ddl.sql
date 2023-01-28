@@ -1,0 +1,23 @@
+Create Table tmoviesmaindetail(
+    id int8 Primary key GENERATED ALWAYS AS IDENTITY,
+    t_Movies_Logo varchar(120),
+    t_Movies_Word varchar(120),
+    t_Movies_Footer_Background varchar(120),
+    t_Movies_Footer_Home varchar(20),
+    t_Movies_Footer_Contact varchar(20),
+    t_Movies_Footer_Service varchar(20),
+    t_Movies_Footer_About varchar(20),
+    t_Movies_Footer_Live varchar(20),
+    t_Movies_Footer_Faq varchar(20),
+    t_Movies_Footer_Premium varchar(20),
+    t_Movies_Footer_Must_Watch varchar(20),
+    t_Movies_Footer_Release varchar(20),
+    t_Movies_Footer_Top_Imdb varchar(20),
+    tv_Series_Paralax_Background varchar(120),
+    tv_Series_Paralax_Luna varchar(120),
+    tv_Series_Paralax_Nub1 varchar(120),
+    tv_Series_Paralax_Nube2 varchar(120),
+    tv_Series_Paralax_Jet varchar(120),
+    tv_Series_Paralax_Ironman varchar(120),
+    movies_Header varchar(120)
+)

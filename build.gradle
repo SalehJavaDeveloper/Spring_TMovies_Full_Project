@@ -1,0 +1,56 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.movies'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+
+
+		implementation group: 'com.twilio.sdk', name: 'twilio', version: '7.34.0'
+		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+		implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		compileOnly 'org.projectlombok:lombok'
+		developmentOnly 'org.springframework.boot:spring-boot-devtools'
+		runtimeOnly 'org.postgresql:postgresql'
+		annotationProcessor 'org.projectlombok:lombok'
+		implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+		implementation 'org.apache.commons:commons-lang3'
+		annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		implementation 'org.springframework:spring-websocket:6.0.3'
+		implementation group: 'io.github.jpenren', name: 'thymeleaf-spring-data-dialect', version: '3.4.2'
+		implementation 'org.springframework:spring-messaging:6.0.3'
+		implementation group: 'org.springframework', name: 'spring-webflux', version: '6.0.0'
+		implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '3.0.0'
+		implementation group: 'org.springframework', name: 'spring-context-support', version: '6.0.2'
+		implementation group: 'jakarta.activation', name: 'jakarta.activation-api', version: '2.1.0'
+		implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.13'
+		implementation group: 'org.hibernate', name: 'hibernate-validator', version: '7.0.5.Final'
+//	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+		//implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+		//implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.0.0'
+		//implementation 'org.springframework.boot:spring-boot-starter-security'
+		implementation group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '3.0.0'
+		implementation group: 'com.sendgrid', name: 'sendgrid-java', version: '4.0.1'
+		implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.18.0'
+
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+}

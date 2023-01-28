@@ -1,0 +1,133 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" th:href="@{/image/icon/tmovie.67797e94.ico}">
+    <title>TMovies</title>
+
+    <link rel="stylesheet" th:href="@{/css/banner.css}" />
+    <link rel="stylesheet" th:href= "@{/css/button.css}" />
+    <link rel="stylesheet" th:href="@{/css/bx.css}" />
+    <link rel="stylesheet" th:href="@{/css/elements.css}" />
+    <link rel="stylesheet" th:href="@{/css/font.css}" />
+    <link rel="stylesheet" th:href="@{/css/footer.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/hero-slide.css}" />
+    <link rel="stylesheet" th:href="@{/css/input.css}" />
+    <link rel="stylesheet" th:href="@{/css/modal.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-card.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-grid.css}" />
+    <link rel="stylesheet" th:href="@{/css/movie-list.css}" />
+    <link rel="stylesheet" th:href="@{/css/page-header.css}" />
+    <link rel="stylesheet" th:href="@{/css/Swipper.css}" />
+    <link rel="stylesheet" th:href="@{/css/bodystyle.css}" />
+    <link rel="stylesheet" th:href="@{/css/headertag.css}">
+    <link rel="stylesheet" th:href="@{/css/movieHeader.css}">
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+
+    <script th:src="@{/js/main.js}"></script>
+    <link rel="stylesheet" href="../static/css/movieHeader.css">
+  </head>
+  <body style="background-color: rgb(13, 13, 13)">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"  th:each = "details: ${detailData}">
+      <div class="header">
+        <div class="header__wrap container">
+          <div class="logo">
+            <img th:src="@{${details.TMoviesLogo}}" alt="" /><a href="/" th:text="${details.TMoviesWord}"></a
+            >
+          </div>
+          <ul class="header__nav">
+            <li class="">
+              <a th:href="@{/sort/pagable}">Home</a>
+            </li>
+            <li class="active"><a th:href="@{/movies}">Movies</a></li>
+            <li class=""><a th:href="@{/tvSeries}">TV Series</a></li>
+          </ul>
+        </div>
+      </div>
+      <main class="full-screen-main can-zoom">
+        <div id="media-viewer">
+          <img
+                  title="witcher-drbl.jpg"
+                  th:src="@{${details.moviesHeader}}"
+          />
+        </div>
+      </main>
+      <div
+        class="page-header"
+        style="background-image: url('/static/media/footer-bg.67e95f05.jpg');margin-bottom: 40px"
+      >
+        <h2>Movies</h2>
+      </div>
+      <div class="container">
+        <div class="section mb-3">
+<!--          <div class="section mb-3">-->
+<!--            <div class="movie-search">-->
+<!--              <input type="text" placeholder="Enter keyword" value="" /><button-->
+<!--                class="btn small"-->
+<!--              >-->
+<!--                Search-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+          <div class="movie-grid">
+            <a th:href="@{/tmovies/Movies/{id}(id = ${movie.id})}" th:each = "movie: ${movies}">
+              <div
+                class="movie-card"
+                th:style="'background-image:url(' + ${movie.TMoviesMainFrontImage} + ');'"
+              >
+                <button class="btn undefined">
+                  <i class="bx bx-play"></i>
+                </button>
+              </div>
+              <h3 th:text="${movie.TMoviesMovieName}"></h3> </a>
+          </div>
+          <div class="movie-grid__loadmore">
+            <button class="btn btn-outline small">Top IMDB</button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="footer"
+        th:style="'background-image:url(' + ${details.TMoviesFooterBackground} + ');'"
+      >
+        <div class="footer__content container">
+          <div class="footer__content__logo">
+            <div class="logo">
+              <img th:src="@{${details.TMoviesLogo}}" alt="" /><a href="/"
+                >tMovies</a
+              >
+            </div>
+          </div>
+          <div class="footer__content__menus">
+            <div class="footer__content__menu">
+              <a href="/" th:text="${details.TMoviesFooterHome}" th:href="@{/sort/pagable}"></a><a href="/" th:text="${details.TMoviesFooterContact}"></a
+              ><a href="/" th:text="${details.TMoviesFooterService}"></a><a href="/" th:text="${details.TMoviesFooterAbout}"></a>
+            </div>
+            <div class="footer__content__menu">
+              <a href="/" th:text="${details.TMoviesFooterLive}"></a><a href="/" th:text="${details.TMoviesFooterFaq}"></a><a href="/" th:text="${details.TMoviesFooterPremium}"></a
+              ><a href="/">Pravacy policy</a>
+            </div>
+            <div class="footer__content__menu">
+              <a href="/" th:text="${details.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 2)}"></a><a href="/" th:text="${details.TMoviesFooterRelease}"></a
+              ><a href="/" th:text="${details.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 1)}"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

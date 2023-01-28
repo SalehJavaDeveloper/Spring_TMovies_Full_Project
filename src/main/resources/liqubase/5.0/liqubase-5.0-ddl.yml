@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Profile Info
+      author: Saleh Allahverdiyev
+      Comment: Profile Info
+      changes:
+        - sqlFile:
+            path: liqubase/5.0/liqubase-5.0-ddl.sql

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0a2a43;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #0a2a43, transparent);
+  z-index: 1000;
+}
+
+.sec {
+  position: relative;
+  padding: 100px;
+}
+
+.sec h2 {
+  font-size: 2.5em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.sec p {
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#luna {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+}
+
+#nube1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 600px;
+}
+
+#nube2 {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  max-width: 600px;
+}
+
+#jet {
+  position: absolute;
+  top: 50px;
+  left: 150px;
+  max-width: 100%;
+  transform: scale(0);
+}
+
+#ironman {
+  position: absolute;
+  top: 110%;
+  z-index: 10000;
+  width: 100%;
+  transform: scale(0);
+}
