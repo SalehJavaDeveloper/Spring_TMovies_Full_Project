@@ -1,10 +1,7 @@
 package com.movies.tMovies.handler;
 
 
-import com.movies.tMovies.exception.ErrorDetails;
-import com.movies.tMovies.exception.GetBadRequestException;
-import com.movies.tMovies.exception.GetForbiddenException;
-import com.movies.tMovies.exception.NotFoundException;
+import com.movies.tMovies.exception.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,24 +41,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         var errorDetails = new ErrorDetails(exception.getStackTrace().toString(), exception.getStatus(), LocalDate.now());
         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ErrorDetails> getAuthenticationException(GetBadRequestException exception){
+        var errorDetails = new ErrorDetails(exception.getStackTrace().toString(), exception.getStatus(), LocalDate.now());
+        return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
+    }
+//     if (all.isEmpty()) {
+//        throw new NotFoundException(HttpStatus.BAD_REQUEST, 6, String.format("Data not found."));
+//    }
 
     @ExceptionHandler(GetForbiddenException.class)
     public ResponseEntity<ErrorDetails> getForbiddenRequest(GetForbiddenException exception){
         var errorDetails = new ErrorDetails(exception.getStackTrace().toString(),exception.getStatus(), LocalDate.now());
         return new ResponseEntity<>(errorDetails, HttpStatus.FORBIDDEN);
     }
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    public Map<String, String> handleValidationExceptions(
-//            MethodArgumentNotValidException ex) {
-//        Map<String, String> errors = new HashMap<>();
-//        ex.getBindingResult().getAllErrors().forEach((error) -> {
-//            String fieldName = ((FieldError) error).getField();
-//            String errorMessage = error.getDefaultMessage();
-//            errors.put(fieldName, errorMessage);
-//        });
-//        return errors;
-//    }
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorDetails> notDataFound(RuntimeException exception){

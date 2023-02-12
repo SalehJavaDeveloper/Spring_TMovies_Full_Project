@@ -1,9 +1,11 @@
-//package com.movies.tMovies.repository;
-//
-//import com.movies.tMovies.domain.AppUser;
-//import org.springframework.data.jpa.repository.JpaRepository;
-//
-//public interface UserRepository extends JpaRepository<AppUser,Long>
-//{
-//    AppUser findByUsername(String username);
-//}
+package com.movies.tMovies.repository;
+
+import com.movies.tMovies.entity.UsersEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<UsersEntity,Integer> {
+    Optional<UsersEntity> findByUsername(String username);
+    Optional<UsersEntity> findByUsernameAndPassword(String username,String password);
+}

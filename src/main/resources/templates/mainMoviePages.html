@@ -31,6 +31,11 @@
             rel="stylesheet"
     />
     <script th:src="@{/js/main.js}"></script>
+    <style>
+        .swiper-slide{
+            margin-right: 10px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,9 +45,9 @@
             <div class="header__wrap container">
                 <div class="logo"><img th:src="@{${mainPageData.TMoviesLogo}}"  alt=""><a href="/" th:text="${mainPageData.TMoviesWord}"></a></div>
                 <ul class="header__nav">
-                    <li class=""><a th:href="@{/sort/pagable}">Home</a></li>
-                    <li class=""><a th:href="@{/movies}" >Movies</a></li>
-                    <li class=""><a th:href="@{/tvSeries}">TV Series</a></li>
+                    <li class=""><a th:href="@{/tmovies/sort/pagable}">Home</a></li>
+                    <li class=""><a th:href="@{/tmovies/movies}" >Movies</a></li>
+                    <li class=""><a th:href="@{/tmovies/tvSeries}">TV Series</a></li>
                 </ul>
             </div>
         </div>
@@ -159,12 +164,12 @@
                     <div class="logo"><img th:src="@{${mainPageData.TMoviesLogo}}" alt=""><a href="/" th:text="${mainPageData.TMoviesWord}"></a></div>
                 </div>
                 <div class="footer__content__menus">
-                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterHome}" th:href="@{/sort/pagable}"></a><a href="/" th:text="${mainPageData.TMoviesFooterContact}"></a><a href="/" th:text="${mainPageData.TMoviesFooterService}">
+                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterHome}" th:href="@{/tmovies/sort/pagable}"></a><a href="/" th:text="${mainPageData.TMoviesFooterContact}"></a><a href="/" th:text="${mainPageData.TMoviesFooterService}">
                             </a><a href="/" th:text="${mainPageData.TMoviesFooterAbout}"></a></div>
                     <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterLive}"></a><a href="/" th:text="${mainPageData.TMoviesFooterFaq}"></a><a href="/" th:text="${mainPageData.TMoviesFooterPremium}"></a><a
                             href="/">Pravacy policy</a></div>
-                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 9)}"></a><a href="/" th:text="${mainPageData.TMoviesFooterRelease}"></a><a
-                            href="/" th:text="${mainPageData.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 8)}"></a></div>
+                    <div class="footer__content__menu"><a href="/" th:text="${mainPageData.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 10)}"></a><a href="/" th:text="${mainPageData.TMoviesFooterRelease}"></a><a
+                            href="/" th:text="${mainPageData.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 11)}"></a></div>
                 </div>
             </div>
         </div>

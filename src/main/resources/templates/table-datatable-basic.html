@@ -804,10 +804,12 @@
                       role="button"
                       data-bs-toggle="dropdown"
               >
-                <img th:src="@{${getAdminInfo.adminProfile}}" width="20" alt="" />
+
+                <img th:src="@{${getAdminInfo.getAdminProfile()}}" width="20" alt="" />
                 <div class="header-info ms-3">
-                  <span class="font-w600">Hi,<b th:text="${getAdminInfo.adminName}"></b></span>
-                  <small class="text-end font-w400" th:text="${getAdminInfo.adminPanel}"></small>
+                  <span class="font-w600">Hi,<b th:text="${getAdminInfo.getAdminName()}"></b></span>
+                  <small class="text-end font-w400" th:text="${getAdminInfo.getAdminPanel()}"></small>
+
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end">
@@ -909,6 +911,19 @@
                       href="javascript:void()"
                       aria-expanded="false"
               >
+                <i class="flaticon-022-copy"></i>
+                <span class="nav-text">Register</span>
+              </a>
+              <ul aria-expanded="false">
+                <li><a th:href="@{/admin/register}">Register</a></li>
+              </ul>
+            </li>
+            <li>
+              <a
+                      class="has-arrow ai-icon"
+                      href="javascript:void()"
+                      aria-expanded="false"
+              >
                 <i class="flaticon-045-heart"></i>
                 <span class="nav-text">Email</span>
               </a>
@@ -928,6 +943,7 @@
               <ul aria-expanded="false">
                 <li><a th:href="@{/admin/table/bootstrap}">TMoviesTable</a></li>
                 <li><a th:href="@{/admin/table/datatable/basic}">MainDetailTable</a></li>
+                <li><a th:href="@{/admin/user/details/data}">UserDataTable</a></li>
                 <li><a th:href="@{/admin/profile/table}">AdminProfileTable</a></li>
               </ul>
             </li>
@@ -969,7 +985,7 @@
               Reserved
             </p>
             <p class="fs-12">
-              Made with <span class="heart"></span> by <span th:text="${getAdminInfo.adminName}"></span>
+              Made with <span class="heart"></span> by <span th:text="${getAdminInfo.getAdminName()}"></span>
             </p>
           </div>
         </div>
@@ -989,7 +1005,7 @@
                 <a href="javascript:void(0)">TMovies Main Detail Data</a>
               </li>
               <li class="breadcrumb-item">
-                <a th:href="@{/create/maindetail-data}">Create New</a>
+                <a th:href="@{/admin/create/maindetail-data}">Create New</a>
               </li>
             </ol>
           </div>
@@ -1048,11 +1064,11 @@
                           <td>
                             <div class="d-flex">
                               <a
-                                      th:href="@{/maindetail/edit/{id}(id = ${detailData.id})}"
+                                      th:href="@{/admin/maindetail/edit/{id}(id = ${detailData.id})}"
                                 class="btn btn-primary shadow btn-xs sharp me-1"
                                 ><i class="fas fa-pencil-alt"></i
                               ></a>
-                              <a th:href="@{/delete/detail/by/{id}(id = ${detailData.id})}"
+                              <a th:href="@{/admin/delete/detail/by/{id}(id = ${detailData.id})}"
                                 class="btn btn-danger shadow btn-xs sharp"
                                 ><i class="fa fa-trash"></i
                               ></a>

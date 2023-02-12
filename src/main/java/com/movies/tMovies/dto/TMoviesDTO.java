@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class TMoviesDTO {
     private Long id;
-    private int uniqeId;
+    private String movieType;
     private String tMoviesLogo;
     private String tMoviesWord;
     private String tMoviesHeaderImage;

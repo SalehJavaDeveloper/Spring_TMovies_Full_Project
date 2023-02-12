@@ -47,9 +47,9 @@
             >
           </div>
           <ul class="header__nav">
-            <li class=""><a th:href="@{/sort/pagable}">Home</a></li>
-            <li class=""><a th:href="@{/movies}">Movies</a></li>
-            <li class="active"><a th:href="@{/tvSeries}">TV Series</a></li>
+            <li class=""><a th:href="@{/tmovies/sort/pagable}">Home</a></li>
+            <li class=""><a th:href="@{/tmovies/movies}">Movies</a></li>
+            <li class="active"><a th:href="@{/tmovies/tvSeries}">TV Series</a></li>
           </ul>
         </div>
       </div>
@@ -86,7 +86,7 @@
           </div>
 
           <div class="movie-grid__loadmore">
-            <button class="btn btn-outline small">Top IMDB</button>
+            <a th:href="@{/tmovies/Movies/{id}(id = 28)}"><button class="btn btn-outline small">Top IMDB</button></a>
           </div>
         </div>
       </div>
@@ -104,7 +104,7 @@
           </div>
           <div class="footer__content__menus">
             <div class="footer__content__menu">
-              <a href="/" th:text="${details.TMoviesFooterHome}" th:href="@{/sort/pagable}"></a><a href="/" th:text="${details.TMoviesFooterContact}"></a
+              <a href="/" th:text="${details.TMoviesFooterHome}" th:href="@{/tmovies/sort/pagable}"></a><a href="/" th:text="${details.TMoviesFooterContact}"></a
             ><a href="/" th:text="${details.TMoviesFooterService}"></a><a href="/" th:text="${details.TMoviesFooterAbout}"></a>
             </div>
             <div class="footer__content__menu">
@@ -112,7 +112,7 @@
             ><a href="/">Pravacy policy</a>
             </div>
             <div class="footer__content__menu">
-              <a href="/" th:text="${details.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 7)}"></a><a href="/" th:text="${details.TMoviesFooterRelease}"></a
+              <a href="/" th:text="${details.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 11)}"></a><a href="/" th:text="${details.TMoviesFooterRelease}"></a
             ><a href="/" th:text="${details.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 10)}"></a>
             </div>
           </div>

@@ -7,5 +7,7 @@
     <include file="liqubase/1.0/liqubase-1.0-ddl.yml"/>
     <include file="/liqubase/2.0/liqubase-2.0-ddl.yml"/>
     <include file="liqubase/3.0/liqubase-3.0-ddl.yml"/>
+    <include file="liqubase/4.0/liqubase-4.0-ddl.yml"/>
     <include file="liqubase/5.0/liqubase-5.0-ddl.yml"/>
+    <include file="liqubase/6.0/liqubase-6.0-ddl.yml"/>
 </databaseChangeLog>

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface TMovies_MoviesRepository extends JpaRepository<TMoviesEntity,Long> {
-    List<TMoviesEntity> findByUniqeId(int uniqeId);
+    List<TMoviesEntity> findByMovieType(String movieType);
 }

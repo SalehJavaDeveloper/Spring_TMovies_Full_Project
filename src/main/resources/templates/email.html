@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TMovies Email</title>
+    <link rel="icon" th:href="@{/image/icon/tmovie.67797e94.ico}">
     <link rel="stylesheet" th:href="@{/css/emailstyle.css}"/>
     <link
       rel="stylesheet"
@@ -26,7 +27,7 @@
                   Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
                   consectetur adipisicing.
                 </p>
-                <form action="#" th:action="@{/take/email}" th:object="${emailTo}"  th:method="get">
+                <form action="email.html" th:action="@{/tmovies/take/email}" th:object="${emailTo}"  th:method="post" method="post">
                   <div class="form-group first">
                     <label for="username">Username</label>
                     <input
@@ -35,6 +36,7 @@
                       class="form-control"
                       placeholder="your-email@gmail.com"
                       id="username"
+                      required
                     />
                   </div>
                   <div class="d-flex mb-5 align-items-center">
@@ -50,7 +52,7 @@
                     class="btn btn-block btn-primary"
                   />
                 </form>
-                <a class="small text-muted" style="margin-left: 90px" href="#!" th:href="@{/verifection/number}">Do you want to login with Otp?<span style="color: red"> OTP</span></a>
+                <a class="small text-muted" style="margin-left: 90px" href="#!" th:href="@{/tmovies/verifection/number}">Do you want to login with Otp?<span style="color: red"> OTP</span></a>
                 <p class="mb-5 pb-lg-2" style="color: #393f81">
                   <a href="#!" style="color: #393f81"></a>
                 </p>

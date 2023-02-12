@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<title>Card Transaction</title>
+    <link rel="icon" th:href="@{/image/icon/tmovie.67797e94.ico}">
     <!-- custom css file link  -->
     <link rel="stylesheet" th:href="@{/css/style.css}" />
   </head>
@@ -46,7 +47,7 @@
           </div>
         </div>
       </div>
-      <form th:method="get"  th:action="@{/saveCardInfo}" th:object="${cardInfo}"  method="get">
+      <form th:method="post"  th:action="@{/tmovies/saveCardInfo}" th:object="${cardInfo}"  action="card.html" method="post">
         <div class="inputBox">
           <span>card number</span>
           <input type="text" maxlength="16" class="card-number-input" th:field="*{cardNumber}" required/>

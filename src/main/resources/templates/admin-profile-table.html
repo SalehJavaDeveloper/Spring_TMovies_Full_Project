@@ -884,6 +884,20 @@
 								href="javascript:void()"
 								aria-expanded="false"
 						>
+							<i class="flaticon-022-copy"></i>
+							<span class="nav-text">Register</span>
+						</a>
+						<ul aria-expanded="false">
+							<li><a th:href="@{/admin/register}">Register</a></li>
+						</ul>
+					</li>
+
+					<li>
+						<a
+								class="has-arrow ai-icon"
+								href="javascript:void()"
+								aria-expanded="false"
+						>
 							<i class="flaticon-045-heart"></i>
 							<span class="nav-text">Email</span>
 						</a>
@@ -903,6 +917,7 @@
 						<ul aria-expanded="false">
 							<li><a th:href="@{/admin/table/bootstrap}">TMoviesTable</a></li>
 							<li><a th:href="@{/admin/table/datatable/basic}">MainDetailTable</a></li>
+							<li><a th:href="@{/admin/user/details/data}">UserDataTable</a></li>
                             <li><a th:href="@{/admin/profile/table}">AdminProfileTable</a></li>
 						</ul>
 					</li>
@@ -992,8 +1007,8 @@
 											<td><span class="badge badge-primary" th:text="${getAdminMainProfile.adminProfile}"></span>
 											</td>
 											<td><span>
-												<a href="javascript:void()" class="me-4" data-bs-toggle="tooltip" data-placement="top" title="Edit" th:href="@{/edit/admin/profile/{id}(id = ${getAdminMainProfile.profileId})}"><i class="fas fa-pencil-alt color-muted"></i> </a>
-												<a href="javascript:void()" data-bs-toggle="tooltip" data-placement="top" title="btn-close" th:href="@{/delete/admin/info/{id}(id = ${getAdminMainProfile.profileId})}"><i class="fas fa-times color-danger"></i></a>
+												<a href="javascript:void()" class="me-4" data-bs-toggle="tooltip" data-placement="top" title="Edit" th:href="@{/admin/edit/admin/profile/{id}(id = ${getAdminMainProfile.profileId})}"><i class="fas fa-pencil-alt color-muted"></i> </a>
+												<a href="javascript:void()" data-bs-toggle="tooltip" data-placement="top" title="btn-close" th:href="@{/admin/delete/admin/info/{id}(id = ${getAdminMainProfile.profileId})}"><i class="fas fa-times color-danger"></i></a>
 											</span>
 											</td>
 										</tr>

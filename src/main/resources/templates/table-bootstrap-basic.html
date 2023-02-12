@@ -884,6 +884,19 @@
 								href="javascript:void()"
 								aria-expanded="false"
 						>
+							<i class="flaticon-022-copy"></i>
+							<span class="nav-text">Register</span>
+						</a>
+						<ul aria-expanded="false">
+							<li><a th:href="@{/admin/register}">Register</a></li>
+						</ul>
+					</li>
+					<li>
+						<a
+								class="has-arrow ai-icon"
+								href="javascript:void()"
+								aria-expanded="false"
+						>
 							<i class="flaticon-045-heart"></i>
 							<span class="nav-text">Email</span>
 						</a>
@@ -903,6 +916,7 @@
 						<ul aria-expanded="false">
 							<li><a th:href="@{/admin/table/bootstrap}">TMoviesTable</a></li>
 							<li><a th:href="@{/admin/table/datatable/basic}">MainDetailTable</a></li>
+							<li><a th:href="@{/admin/user/details/data}">UserDataTable</a></li>
 							<li><a th:href="@{/admin/profile/table}">AdminProfileTable</a></li>
 						</ul>
 					</li>
@@ -961,7 +975,7 @@
 				<div class="row page-titles">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item active"><a href="javascript:void(0)">TMovies Data Panel</a></li>
-						<li class="breadcrumb-item"><a th:href="@{/create/tmovies-data}">Create New</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/admin/create/tmovies-data}">Create New</a></li>
 					</ol>
                 </div>
                 <!-- row -->
@@ -989,7 +1003,7 @@
                                         <tbody>
                                             <tr th:each = "movies: ${getMovies}">
                                                 <td><strong  th:text="${movies.id}"></strong></td>
-                                                <td th:text="${movies.uniqeId}"></td>
+                                                <td th:text="${movies.movieType}"></td>
                                                 <td th:text="${movies.TMoviesMovieName}"></td>
                                                 <td th:text="${movies.TMoviesMovieActorName1}"></td>
                                                 <td><span class="badge light badge-success">Successful</span></td>
@@ -1000,8 +1014,8 @@
 															<svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 														</button>
 														<div class="dropdown-menu" >
-															<a class="dropdown-item" th:href="@{/movie/edit/{id}(id = ${movies.id})}">Edit</a>
-															<a class="dropdown-item"  th:href="@{/delete/by/{id}(id = ${movies.id})}">Delete</a>
+															<a class="dropdown-item" th:href="@{/admin/movie/edit/{id}(id = ${movies.id})}">Edit</a>
+															<a class="dropdown-item"  th:href="@{/admin/delete/by/{id}(id = ${movies.id})}">Delete</a>
 														</div>
 													</div>
 												</td>
