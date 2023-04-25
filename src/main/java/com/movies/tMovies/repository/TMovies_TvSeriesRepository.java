@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface TMovies_TvSeriesRepository extends JpaRepository<TMoviesEntity,Long> {
-    List<TMoviesEntity> findByUniqeId(int uniqeId);
+    List<TMoviesEntity> findByMovieType(String movieType);
 }

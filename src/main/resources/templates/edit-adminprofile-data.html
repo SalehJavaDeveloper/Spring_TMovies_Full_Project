@@ -41,8 +41,7 @@
     <div class="col-Lg-6 col-md-6 col-sm-6 container justify-content-center card" style="background-color: #212130">
      <h1 class="text-center">Update MovieDetail</h1>
       <div class="card-body">
-
-        <form  th:action="@{/admin/profile-edit/{id}(id = ${adminProfileInfo.profileId})}" th:object="${adminProfileInfo}" method="get">
+        <form  th:action="@{/admin/profile-edit/{id}(id = ${adminProfileInfo.profileId})}" th:object="${adminProfileInfo}" method="post" th:method="post" action="edit-adminprofile-data.html">
            <div class="form-group">
                <label>Admin Name</label>
                 <input
@@ -51,6 +50,7 @@
                         class="form-control"
                         th:field="*{adminName}"
                         placeholder="Enter the Admin Name"
+                        required
                 >
            </div>
             <div class="form-group">
@@ -61,6 +61,7 @@
                         class="form-control"
                         th:field="*{adminEmail}"
                         placeholder="Enter the Admin Email"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -71,6 +72,7 @@
                         class="form-control"
                         th:field="*{adminDeveloper}"
                         placeholder="Enter the Admin Developer"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -81,6 +83,7 @@
                         class="form-control"
                         th:field="*{adminProfile}"
                         placeholder="Enter the Admin Profile"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -91,6 +94,7 @@
                         class="form-control"
                         th:field="*{adminProject}"
                         placeholder="Enter the Admin Project"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -101,6 +105,7 @@
                         class="form-control"
                         th:field="*{adminPanel}"
                         placeholder="Enter the Admin Panel"
+                        required
                 >
             </div>
             <div class="box-footer">

@@ -41,15 +41,16 @@
     <div class="col-Lg-6 col-md-6 col-sm-6 container justify-content-center card" style="background-color: #212130">
      <h1 class="text-center">Update MovieDetail</h1>
       <div class="card-body">
-        <form  th:action="@{/movie/editing/by/{id}(id = ${editById.id})}" th:object="${editById}" method="get">
+        <form  th:action="@{/admin/movie/editing/by/{id}(id = ${editById.id})}" th:object="${editById}" method="post" th:method="post" action="edit-tmovies-data.html">
            <div class="form-group">
-               <label>Unique Id</label>
+               <label>Movie Type</label>
                 <input
                         type="text"
                         name="firstname"
                         class="form-control"
-                        th:field="*{uniqeId}"
-                        placeholder="Enter the Id"
+                        th:field="*{movieType}"
+                        placeholder="Enter the Movie Type"
+                        required
                 >
            </div>
             <div class="form-group">
@@ -60,6 +61,7 @@
                         class="form-control"
                         th:field="*{TMoviesLogo}"
                         placeholder="Enter the Logo"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -70,6 +72,7 @@
                         class="form-control"
                         th:field="*{TMoviesWord}"
                         placeholder="Enter the TMovies Word"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -80,6 +83,7 @@
                         class="form-control"
                         th:field="*{TMoviesHeaderImage}"
                         placeholder="Enter the Header Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -90,6 +94,7 @@
                         class="form-control"
                         th:field="*{TMoviesMainFrontImage}"
                         placeholder="Enter the Main Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -100,6 +105,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieName}"
                         placeholder="Enter the Movie Name"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -110,6 +116,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieType1}"
                         placeholder="Enter Movie Type1"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -120,6 +127,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieType2}"
                         placeholder="Enter Movie Type2"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -130,6 +138,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieAbout}"
                         placeholder="Enter the Movie About"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -140,6 +149,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieCasts}"
                         placeholder="Enter the Casts"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -150,6 +160,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieImage1}"
                         placeholder="Enter the Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -160,6 +171,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieImage2}"
                         placeholder="Enter the Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -170,6 +182,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieImage3}"
                         placeholder="Enter the Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -180,6 +193,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieImage4}"
                         placeholder="Enter the Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -190,6 +204,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieImage5}"
                         placeholder="Enter the Image"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -200,6 +215,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieActorName1}"
                         placeholder="Enter the Actor Name"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -210,6 +226,7 @@
                             class="form-control"
                             th:field="*{TMoviesMovieActorName2}"
                             placeholder="Enter the Actor Name"
+                            required
                     >
             </div>
             <div class="form-group">
@@ -220,6 +237,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieActorName3}"
                         placeholder="Enter the Actor Name"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -230,6 +248,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieActorName4}"
                         placeholder="Enter the Actor Name"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -240,6 +259,7 @@
                         class="form-control"
                         th:field="*{TMoviesMovieActorName5}"
                         placeholder="Enter the Actor Name"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -250,6 +270,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerDescription1}"
                         placeholder="Enter the Description"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -260,6 +281,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerVideo1}"
                         placeholder="Enter the Video"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -270,6 +292,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerDescription2}"
                         placeholder="Enter the Description"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -280,6 +303,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerVideo2}"
                         placeholder="Enter the Video"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -290,6 +314,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerDescription3}"
                         placeholder="Enter the Description"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -300,6 +325,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerVideo3}"
                         placeholder="Enter the Video"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -310,6 +336,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerDescription4}"
                         placeholder="Enter the Description"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -320,6 +347,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerVideo4}"
                         placeholder="Enter the Video"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -330,6 +358,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerDescription5}"
                         placeholder="Enter the Description"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -340,6 +369,7 @@
                         class="form-control"
                         th:field="*{TMoviesTrailerVideo5}"
                         placeholder="Enter the Video"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -350,6 +380,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterBackground}"
                         placeholder="Enter the Background"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -360,6 +391,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterHome}"
                         placeholder="Enter the Home"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -370,6 +402,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterContact}"
                         placeholder="Enter the Contact"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -380,6 +413,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterService}"
                         placeholder="Enter the Service"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -390,6 +424,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterAbout}"
                         placeholder="Enter the About"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -400,6 +435,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterLive}"
                         placeholder="Enter the Live"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -410,6 +446,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterFaq}"
                         placeholder="Enter the Faq"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -420,6 +457,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterPremium}"
                         placeholder="Enter the Premium"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -430,6 +468,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterMustWatch}"
                         placeholder="Enter the Must Watch"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -440,6 +479,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterRelease}"
                         placeholder="Enter the Release"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -450,6 +490,7 @@
                         class="form-control"
                         th:field="*{TMoviesFooterTopImdb}"
                         placeholder="Enter the Top IMDB"
+                        required
                 >
             </div>
             <div class="form-group">
@@ -460,6 +501,7 @@
                         class="form-control"
                         th:field="*{TMoviesImdb}"
                         placeholder="Enter the IMDB"
+                        required
                 >
             </div>
             <div class="box-footer">

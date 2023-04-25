@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Shopping Card
+      author: Saleh Allahverdiyev
+      Comment: Shopping Card
+      changes:
+        - sqlFile:
+            path: liqubase/6.0/liqubase-6.0-ddl.sql

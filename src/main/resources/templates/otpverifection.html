@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>OTP Verifection</title>
+    <link rel="icon" th:href="@{/image/icon/tmovie.67797e94.ico}">
     <link rel="stylesheet" th:href="@{/css/odpstyle.css}" />
     <link
       rel="stylesheet"
@@ -28,12 +29,12 @@
       <div class="card py-5 px-3">
         <h5 class="m-0">Mobile phone verification</h5>
         <span class="mobile-text"
-          >Enter the code we just send on your mobile phone
-          <b class="text-danger">+994773574917</b></span
+          >Enter the otp we just send on your mobile phone
+          <b class="text-danger"></b></span
         >
         <div class="d-flex flex-row mt-5">
-          <form  th:action="@{/verify/otp}" th:object="${getOTP}"  method="get">
-          <input type="text" class="form-control" th:field="*{otp}" autofocus=""  placeholder="otp"/>
+          <form  th:action="@{/tmovies/verify/otp}" th:object="${getOTP}"  method="get">
+          <input type="text" class="form-control" th:field="*{otp}" autofocus="" required  placeholder="otp"/>
             <input type="submit" class="btn btn-dark btn-lg btn-block" /></form>
         </div>
         <div class="text-center mt-5">

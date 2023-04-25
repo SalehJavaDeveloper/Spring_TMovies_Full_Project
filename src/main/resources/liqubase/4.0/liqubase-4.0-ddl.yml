@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create User Details
+      author: Saleh Allahverdiyev
+      Comment: Users Details
+      changes:
+        - sqlFile:
+            path: liqubase/4.0/liqubase-4.0-ddl.sql

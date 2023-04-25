@@ -1,23 +1,51 @@
-//package com.movies.tMovies.configuration;
-//
-//import org.springframework.boot.autoconfigure.security.SecurityProperties;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.core.annotation.Order;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-//import org.springframework.security.web.SecurityFilterChain;
-//
-//@EnableWebSecurity
-//public class SecurityConfiguration {
-//
-//    @Bean
-//   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.
-//                authorizeHttpRequests().
-//                anyRequest().
-//                authenticated()
-//                .and()
-//                .httpBasic();
-//        return http.build();
-//    }
-//}
+package com.movies.tMovies.configuration;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfiguration {
+
+    private final JwtAuthenticationFilter jwtAuthFilter;
+
+    private final AuthenticationProvider authenticationProvider;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        http
+                .headers()
+                .frameOptions()
+                .disable()
+                .and()
+                .csrf()
+                .disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/tmovies/**","/admin/**","/resources/**",
+                        "/css/**","/static/**","/image/**","/icons/**","/js/**","/vendor/**","/templates/**",
+                        "/topic/messages/**","/app/chat/**","/chat","/app","/topic","/topic/**","/app/**","/chat/**"
+                ,"/cdn-cgi/**","/mail/**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                ;
+
+        return http.build();
+    }
+}
+

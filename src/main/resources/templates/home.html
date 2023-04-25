@@ -28,6 +28,11 @@
     <link rel="stylesheet" th:href="@{/css/Swipper.css}" />
     <link rel="stylesheet" th:href="@{/css/headertag.css}">
     <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/css/shopcard.css}">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
     <link
             href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
             rel="stylesheet"
@@ -49,15 +54,36 @@
                 </div>
                 <ul class="header__nav">
                     <li class="active">
-                        <a th:href="@{/sort/pagable}">Home</a>
+                        <a th:href="@{/tmovies/sort/pagable}">Home</a>
                     </li>
                     <li class="">
-                        <a th:href="@{/movies}">Movies</a>
+                        <a th:href="@{/tmovies/movies}">Movies</a>
                     </li>
                     <li class="">
-                        <a th:href="@{/tvSeries}">TV Series</a>
+                        <a th:href="@{/tmovies/tvSeries}">TV Series</a>
+                    </li>
+                    <li class="">
+
+                        <a onclick="mainfunction()" style="width:35px;height: 25px;" id = "cart-btn"><i style="width:27px;height: 15px;" class="fa fa-shopping-cart"></i></a>
                     </li>
                 </ul>
+            </div>
+            <div class="cart-item-container" style="background-image: url(/image/img/istockphoto-1058727850-612x612.jpg);overflow-y: scroll;height: 404px">
+               <div class="cart-item" th:each = "ShopDatas: ${shopCardData}">
+
+                    <a th:href="@{/tmovies/delete/shop-data/{id}(id = ${ShopDatas.id})}" ><span style="color:red" class="fas fa-times"></span></a>
+                    <a th:href="@{/tmovies/Movies/{id}(id = ${ShopDatas.movieId})}">
+                    <img
+                            th:src="@{${ShopDatas.TMoviesMainFrontImage}}"
+                            alt=""
+                            style="width: 147px;height: 130px;"
+                    /></a>
+                    <div class="content">
+                        <h3 style="color:red" th:text="${ShopDatas.TMoviesMovieName}">Winter Clothes</h3>
+                        <h3 id="rate" class="price"><span style="color: blue;font-size: 14px;">IMDB:</span ><i style="color: orangered;font-size: 14px;" class="bi bi-star-fill"></i><span style="color: black;font-size: 14px;" th:text="${ShopDatas.TMoviesImdb}"></span></h3>
+                    </div>
+
+               </div>
             </div>
         </div>
         <div class="hero-slide">
@@ -134,7 +160,7 @@
             <div id="modal_985939" class="modal2">
                 <div class="modal__content2">
                     <iframe width="100%" height="500px" title="trailer" id="mainvideo2"
-                            th:src="${headerhomedata2.TMoviesTrailerVideo1}"></iframe>
+                            th:src="${headerhomedata2.TMoviesTrailerVideo2}"></iframe>
                         <div class="modal__content__close2">
                             <button id="stop-button2" style="background-color: #EEEDE9;"><i class="bx bx-x"></i></button>
                         </div>
@@ -143,7 +169,7 @@
             <div id="modal_642885" class="modal3">
                 <div class="modal__content3">
                     <iframe width="100%" height="500px" title="trailer" id="mainvideo3"
-                            th:src="${headerhomedata3.TMoviesTrailerVideo1}">
+                            th:src="${headerhomedata3.TMoviesTrailerVideo2}">
                     </iframe>
                     <div class="modal__content__close3">
                         <button id="stop-button3" style="background-color: #EEEDE9;"><i class="bx bx-x"></i></button>
@@ -151,7 +177,7 @@
                 </div>
             </div>
         </div>
-        <iframe th:src="@{/infoMovies/1}" frameborder="0" width="100%" height="100%" style="margin-top: 5px;"></iframe>
+        <iframe th:src="@{http://localhost:9095/tmovies/infoMovies/1}" frameborder="0" width="100%" height="100%" style="margin-top: 5px;"></iframe>
         <div class="container">
             <div class="section mb-3" style="margin-top: 20px;margin-bottom: -11rem">
                 <div class="section__header mb-2">
@@ -164,22 +190,14 @@
                     <div class="swiper swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
                         style="cursor: grab;">
                         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
-<!--                            <div class="swiper-slide-active" style="margin-right: 10px !important;" th:each = "pagableData1: ${pagabledata1}">-->
-<!--                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData1.id})}">-->
-<!--                                    <div class="movie-card"-->
-<!--                                         th:style="'background-image:url(' + ${pagableData1.TMoviesMainFrontImage} + ');'">-->
-<!--                                        <button class="btn undefined"><i class="bx bx-play"></i></button></div>-->
-<!--                                    <h3 th:text="${pagableData1.TMoviesMovieName}"></h3>-->
-<!--                                    -->
-<!--                                </a>-->
-<!--                            </div>-->
-                            <div class="swiper-slide swiper-slide-active" style="margin-right: 10px;" th:each = "pagableData3: ${pagabledata3}">
-                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData3.id})}">
+                            <div class="swiper-slide swiper-slide-active" style="margin-right: 10px;" th:each = "pagableData1: ${pagabledata1}">
+                                <a th:href="@{/tmovies/Movies/{id}(id = ${pagableData1.id})}">
                                     <div class="movie-card"
-                                         th:style="'background-image:url(' + ${pagableData3.TMoviesMainFrontImage} + ');'">
+                                         th:style="'background-image:url(' + ${pagableData1.TMoviesMainFrontImage} + ');'">
                                         <button class="btn undefined"><i class="bx bx-play"></i></button></div>
-                                    <h3 th:text="${pagableData3.TMoviesMovieName}"></h3>
+                                    <h3 th:text="${pagableData1.TMoviesMovieName}"></h3>
                                 </a>
+                                <a th:href="@{/tmovies/shop-card/data-id/{id}(id = ${pagableData1.id})}" ><button class = "cardbutton">Add to card</button></a>
                             </div>
                             </div>
                     </div>
@@ -201,6 +219,7 @@
                                         <button class="btn undefined"><i class="bx bx-play"></i></button></div>
                                     <h3 th:text="${pagableData2.TMoviesMovieName}"></h3>
                                 </a>
+                                <a th:href="@{/tmovies/shop-card/data-id/{id}(id = ${pagableData2.id})}"><button class = "cardbutton">Add to card</button></a>
                             </div>
                         </div>
                     </div>
@@ -221,6 +240,7 @@
                                         <button class="btn undefined"><i class="bx bx-play"></i></button></div>
                                     <h3 th:text="${pagableData3.TMoviesMovieName}"></h3>
                                 </a>
+                                <a th:href="@{/tmovies/shop-card/data-id/{id}(id = ${pagableData3.id})}"><button class = "cardbutton">Add to card</button></a>
                             </div>
                         </div>
                     </div>
@@ -241,6 +261,7 @@
                                         <button class="btn undefined"><i class="bx bx-play"></i></button></div>
                                     <h3 th:text="${pagableData4.TMoviesMovieName}"></h3>
                                 </a>
+                                <a th:href="@{/tmovies/shop-card/data-id/{id}(id = ${pagableData4.id})}"></a><button class = "cardbutton">Add to card</button></a>
                             </div>
                         </div>
                     </div>
@@ -252,28 +273,14 @@
             th:each = "details: ${maindetaildata}"
             th:style="'background-image:url(' + ${details.TMoviesFooterBackground} + ');'"
     >
-        <div class="footer__content container">
-            <div class="footer__content__logo">
-                <div class="logo">
-                    <img th:src="@{${details.TMoviesLogo}}" alt="" /><a href="/"
-                >tMovies</a
-                >
-                </div>
-            </div>
-            <div class="footer__content__menus">
-                <div class="footer__content__menu">
-                    <a href="/" th:text="${details.TMoviesFooterHome}" th:href="@{/sort/pagable}"></a><a href="/" th:text="${details.TMoviesFooterContact}"></a
-                ><a href="/" th:text="${details.TMoviesFooterService}"></a><a href="/" th:text="${details.TMoviesFooterAbout}"></a>
-                </div>
-                <div class="footer__content__menu">
-                    <a href="/" th:text="${details.TMoviesFooterLive}"></a><a href="/" th:text="${details.TMoviesFooterFaq}"></a><a href="/" th:text="${details.TMoviesFooterPremium}"></a
-                ><a href="/">Pravacy policy</a>
-                </div>
-                <div class="footer__content__menu">
-                    <a href="/" th:text="${details.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 9)}"></a><a href="/" th:text="${details.TMoviesFooterRelease}"></a
-                ><a href="/" th:text="${details.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 8)}"></a>
-                </div>
-            </div>
+        <iframe th:src="@{/tmovies/comment/chatting}" width="800px" height="600px" style="float: left;margin-right: 140px;"></iframe>
+        <div class="footer__content__menu" >
+            <a href="/" th:text="${details.TMoviesFooterHome}" th:href="@{/tmovies/sort/pagable}"></a><a href="/" th:text="${details.TMoviesFooterContact}"></a
+        ><a href="/" th:text="${details.TMoviesFooterService}"></a><a href="/" th:text="${details.TMoviesFooterAbout}"></a>
+            <a href="/" th:text="${details.TMoviesFooterLive}"></a><a href="/" th:text="${details.TMoviesFooterFaq}"></a><a href="/" th:text="${details.TMoviesFooterPremium}"></a
+        ><a href="/">Pravacy policy</a>
+            <a href="/" th:text="${details.TMoviesFooterMustWatch}" th:href="@{/tmovies/Movies/{id}(id = 12)}"></a><a href="/" th:text="${details.TMoviesFooterRelease}"></a
+        ><a href="/" th:text="${details.TMoviesFooterTopImdb}" th:href="@{/tmovies/Movies/{id}(id = 1)}"></a><a>Main</a>
         </div>
     </div>
         <script src="../static/js/main.js"></script>
@@ -282,6 +289,10 @@
 
 
   <script>
+      function  mainfunction(){
+          let cartItem = document.querySelector('.cart-item-container');
+          cartItem.classList.toggle('active');
+      }
  var swiper = new Swiper(".swiper-container", {
         effect: "coverflow",
         grabCursor: true,
